@@ -9,6 +9,6 @@ data class NoteData(
     @PrimaryKey val id: Int,
     @ColumnInfo val title: String?,
     @ColumnInfo val content: String?,
-    @ColumnInfo val timestamp: Long,
-    @ColumnInfo val color: Int
+//    @ColumnInfo val timestamp: Long,
+//    @ColumnInfo val color: Int
 )
