@@ -1,6 +1,5 @@
 package com.example.note.viewmodel
 
-import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.note.model.NoteRepository
