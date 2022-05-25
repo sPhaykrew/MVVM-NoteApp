@@ -1,9 +1,12 @@
 package com.example.note.view
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.note.R
 import com.example.note.model.NoteData
@@ -23,6 +26,7 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
     override fun onBindViewHolder(holder: RecyclerViewAdapter.ViewHolder, position: Int) {
         holder.title.text = item[position].title
         holder.content.text = item[position].content
+        holder.color.setCardBackgroundColor(Color.parseColor("#FF03DAC5"))
     }
 
     override fun getItemCount(): Int {
@@ -32,5 +36,6 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var title: TextView = view.findViewById(R.id.title)
         var content: TextView = view.findViewById(R.id.content)
+        var color: CardView = view.findViewById(R.id.color)
     }
 }

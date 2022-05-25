@@ -1,10 +1,13 @@
 package com.example.note.view
 
 import android.os.Bundle
+import android.text.TextUtils
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.note.R
@@ -29,9 +32,14 @@ class AddNoteFragment : Fragment() {
         initViewModel()
 
         binding.addNote.setOnClickListener{
-            val note = NoteData(0,binding.edittextTitle.text.toString(),binding.edittextContent.text.toString())
-            noteViewModel.insert(note)
-            findNavController().navigate(R.id.mainFragment)
+            if (TextUtils.isEmpty(binding.edittextTitle.text.toString()) || TextUtils.isEmpty(binding.edittextContent.text.toString())){
+                binding.edittextTitle.error = "Please input title"
+                binding.edittextContent.error = "Please input content"
+            } else {
+                val note = NoteData(0,binding.edittextTitle.text.toString(),binding.edittextContent.text.toString())
+                noteViewModel.insert(note)
+                findNavController().navigate(R.id.mainFragment)
+            }
         }
 
         return binding.root
