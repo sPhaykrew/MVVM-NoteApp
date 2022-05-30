@@ -2,12 +2,11 @@ package com.example.note.view
 
 import android.graphics.Color
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.cardview.widget.CardView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.note.R
+import com.example.note.databinding.RecyclerviewItemBinding
 import com.example.note.model.NoteData
 
 class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
@@ -19,22 +18,23 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewAdapter.ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_item,parent,false))
+        return ViewHolder(RecyclerviewItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: RecyclerViewAdapter.ViewHolder, position: Int) {
-        holder.title.text = item[position].title
-        holder.content.text = item[position].content
-        holder.color.setCardBackgroundColor(Color.parseColor(item[position].color))
+        holder.binding.title.text = item[position].title
+        holder.binding.content.text = item[position].content
+        holder.binding.color.setCardBackgroundColor(Color.parseColor(item[position].color))
+        holder.binding.root.setOnClickListener {
+            val action = MainFragmentDirections.actionMainFragmentToEditNoteFragment(item[position])
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {
         return item.size
     }
 
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var title: TextView = view.findViewById(R.id.title)
-        var content: TextView = view.findViewById(R.id.content)
-        var color: CardView = view.findViewById(R.id.color)
-    }
+    inner class ViewHolder(val binding: RecyclerviewItemBinding) : RecyclerView.ViewHolder(binding.root)
+
 }

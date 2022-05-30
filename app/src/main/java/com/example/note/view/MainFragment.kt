@@ -37,7 +37,7 @@ class MainFragment : Fragment() {
         })
 
         binding.addNote.setOnClickListener {
-            findNavController().navigate(R.id.addNoteFragment)
+            findNavController().navigate(R.id.action_mainFragment_to_addNoteFragment)
         }
 
         return binding.root

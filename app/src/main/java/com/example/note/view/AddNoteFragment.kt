@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.note.R
@@ -19,23 +18,23 @@ import com.example.note.viewmodel.NoteViewModelFactory
 
 class AddNoteFragment : Fragment() {
 
-    private lateinit var binding: FragmentAddNoteBinding
+    private lateinit var addNoteBinding: FragmentAddNoteBinding
     private lateinit var noteViewModel: NoteViewModel
-    var color: String = "#FFBB86FC"
+    var color: String = "none"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentAddNoteBinding.inflate(inflater, container, false)
+        addNoteBinding = FragmentAddNoteBinding.inflate(inflater, container, false)
 
         initViewModel()
 
-        binding.addNote.setOnClickListener {
-            setNotes()
+        addNoteBinding.addNote.setOnClickListener {
+            createNotes()
         }
 
-        return binding.root
+        return addNoteBinding.root
     }
 
     private fun initViewModel() {
@@ -45,24 +44,29 @@ class AddNoteFragment : Fragment() {
         noteViewModel = ViewModelProvider(requireActivity(), factory)[NoteViewModel::class.java]
     }
 
-    private fun setNotes() {
-        if (TextUtils.isEmpty(binding.edittextTitle.text.toString()) || TextUtils.isEmpty(binding.edittextContent.text.toString())) {
-            binding.edittextTitle.error = "Please input title"
-            binding.edittextContent.error = "Please input content"
+    private fun createNotes() {
+        if (TextUtils.isEmpty(addNoteBinding.edittextTitle.text.toString()) || TextUtils.isEmpty(addNoteBinding.edittextContent.text.toString())) {
+            addNoteBinding.edittextTitle.error = "Please input title"
+            addNoteBinding.edittextContent.error = "Please input content"
         } else {
+            val title = addNoteBinding.edittextTitle.text.toString()
+            val content = addNoteBinding.edittextContent.text.toString()
+            val color = when (addNoteBinding.colorGroup.checkedRadioButtonId) {
+                R.id.color1 -> "#FFBB86FC"
+                R.id.color2 -> "#FF3700B3"
+                R.id.color3 -> "#FF03DAC5"
+                else -> "#FF018786"
+            }
+
             val note = NoteData(
-                0,
-                binding.edittextTitle.text.toString(),
-                binding.edittextContent.text.toString(),
-                when (binding.colorGroup.checkedRadioButtonId) {
-                    R.id.color1 -> "#FFBB86FC"
-                    R.id.color2 -> "#FF3700B3"
-                    R.id.color3 -> "#FF03DAC5"
-                    else -> "#FF018786"
-                }
+                id = 0,
+                title = title,
+                content = content,
+                color = color
             )
+
             noteViewModel.insert(note)
-            findNavController().navigate(R.id.mainFragment)
+            findNavController().navigate(R.id.action_addNoteFragment_to_mainFragment)
         }
     }
 
