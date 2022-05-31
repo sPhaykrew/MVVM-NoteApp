@@ -49,7 +49,7 @@ class EditNoteFragment : Fragment() {
         noteViewModel = ViewModelProvider(requireActivity(), factory)[NoteViewModel::class.java]
     }
 
-    fun getNote(){
+    private fun getNote(){
         editNoteBinding.edittextTitle.setText(note.data.title)
         editNoteBinding.edittextContent.setText(note.data.content)
         when (note.data.color) {
@@ -60,7 +60,7 @@ class EditNoteFragment : Fragment() {
         }
     }
 
-    fun updateNote(){
+    private fun updateNote(){
         if (TextUtils.isEmpty(editNoteBinding.edittextTitle.text.toString()) || TextUtils.isEmpty(editNoteBinding.edittextContent.text.toString())) {
             editNoteBinding.edittextTitle.error = "Please input title"
             editNoteBinding.edittextContent.error = "Please input content"
@@ -86,7 +86,7 @@ class EditNoteFragment : Fragment() {
         }
     }
 
-    fun deleteNote(){
+    private fun deleteNote(){
         noteViewModel.delete(note.data.id)
         findNavController().navigate(R.id.action_editNoteFragment_to_mainFragment)
     }
