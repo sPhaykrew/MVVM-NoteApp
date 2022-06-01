@@ -2,10 +2,8 @@ package com.example.note.view
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -28,6 +26,7 @@ class EditNoteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         editNoteBinding = FragmentEditNoteBinding.inflate(inflater, container, false)
+        setHasOptionsMenu(true)
         initViewModel()
         getNote()
 
@@ -35,8 +34,15 @@ class EditNoteFragment : Fragment() {
             updateNote()
         }
 
-        editNoteBinding.delete.setOnClickListener {
-            deleteNote()
+        editNoteBinding.toolbarSub.setNavigationOnClickListener {
+            findNavController().navigate(R.id.action_editNoteFragment_to_mainFragment)
+        }
+
+        editNoteBinding.toolbarSub.setOnMenuItemClickListener {
+            if (it.itemId == R.id.menu_delete){
+                deleteNote()
+            }
+            true
         }
 
         return editNoteBinding.root

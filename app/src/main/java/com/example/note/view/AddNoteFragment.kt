@@ -34,6 +34,12 @@ class AddNoteFragment : Fragment() {
             createNotes()
         }
 
+
+        addNoteBinding.toolbarSub.setNavigationOnClickListener {
+            findNavController().navigate(R.id.action_addNoteFragment_to_mainFragment)
+        }
+
+
         return addNoteBinding.root
     }
 
