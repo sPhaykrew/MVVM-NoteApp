@@ -3,6 +3,7 @@ package com.example.note.view
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.*
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -74,10 +75,10 @@ class EditNoteFragment : Fragment() {
             val title = editNoteBinding.edittextTitle.text.toString()
             val content = editNoteBinding.edittextContent.text.toString()
             val color = when (editNoteBinding.colorGroup.checkedRadioButtonId) {
-                R.id.color1 -> "#FFBB86FC"
-                R.id.color2 -> "#FF3700B3"
-                R.id.color3 -> "#FF03DAC5"
-                else -> "#FF018786"
+                R.id.color1 -> "#" + Integer.toHexString(ContextCompat.getColor(requireActivity(), R.color.color1) and  0x00ffffff)
+                R.id.color2 -> "#" + Integer.toHexString(ContextCompat.getColor(requireActivity(), R.color.color2) and  0x00ffffff)
+                R.id.color3 -> "#" + Integer.toHexString(ContextCompat.getColor(requireActivity(), R.color.color3) and  0x00ffffff)
+                else -> "#" + Integer.toHexString(ContextCompat.getColor(requireActivity(), R.color.color4) and  0x00ffffff)
             }
 
             val note = NoteData(
