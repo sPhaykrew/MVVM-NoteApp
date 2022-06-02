@@ -9,4 +9,10 @@
     <string name="search">Search</string>
     <string name="delete">Delete</string>
     <string name="save">Save</string>
+
+    ///dialog delete
+    <string name="delete_title_dialog">Delete Note</string>
+    <string name="delete_message_dialog">Are you sure you want to permanently delete this note?</string>
+    <string name="delete_dialog">DELETE</string>
+    <string name="cancel_dialog">CANCEL</string>
 </resources>

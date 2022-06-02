@@ -15,6 +15,7 @@ import com.example.note.model.NoteData
 import com.example.note.model.NoteRepository
 import com.example.note.viewmodel.NoteViewModel
 import com.example.note.viewmodel.NoteViewModelFactory
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class EditNoteFragment : Fragment() {
 
@@ -94,8 +95,17 @@ class EditNoteFragment : Fragment() {
     }
 
     private fun deleteNote(){
-        noteViewModel.delete(note.data.id)
-        findNavController().navigate(R.id.action_editNoteFragment_to_mainFragment)
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(resources.getString(R.string.delete_title_dialog))
+            .setMessage(resources.getString(R.string.delete_message_dialog))
+            .setNegativeButton(resources.getString(R.string.cancel_dialog)) { dialog, which ->
+                //cancel
+            }
+            .setPositiveButton(resources.getString(R.string.delete_dialog)) { dialog, which ->
+                noteViewModel.delete(note.data.id)
+                findNavController().navigate(R.id.action_editNoteFragment_to_mainFragment)
+            }
+            .show()
     }
 
 }
