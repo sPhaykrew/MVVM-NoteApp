@@ -1,6 +1,7 @@
 package com.example.note.viewmodel
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.note.model.NoteData
@@ -10,7 +11,9 @@ import kotlinx.coroutines.launch
 
 class NoteViewModel(private val repository: NoteRepository) : ViewModel() {
 
-    val getNote : LiveData<List<NoteData>> = repository.notedata
+    private val notes = repository.noteData()
+
+    fun getAllNote() : LiveData<List<NoteData>> = notes
 
     fun insert(noteData: NoteData){
         viewModelScope.launch {Dispatchers.IO
@@ -29,5 +32,4 @@ class NoteViewModel(private val repository: NoteRepository) : ViewModel() {
         repository.delete(id)
         }
     }
-
 }
