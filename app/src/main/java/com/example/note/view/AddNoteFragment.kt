@@ -2,17 +2,19 @@ package com.example.note.view
 
 import android.os.Bundle
 import android.text.TextUtils
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.note.R
 import com.example.note.databinding.FragmentAddNoteBinding
 import com.example.note.model.NoteData
 import com.example.note.viewmodel.NoteViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class AddNoteFragment : Fragment() {
 
@@ -45,6 +47,7 @@ class AddNoteFragment : Fragment() {
         } else {
             val title = addNoteBinding.edittextTitle.text.toString()
             val content = addNoteBinding.edittextContent.text.toString()
+            val date = SimpleDateFormat("dd-MM-yyyy  ", Locale.getDefault()).format(Date())
             val color = when (addNoteBinding.colorGroup.checkedRadioButtonId) {
                 R.id.color1 -> "#" + Integer.toHexString(ContextCompat.getColor(requireActivity(), R.color.color1) and  0x00ffffff)
                 R.id.color2 -> "#" + Integer.toHexString(ContextCompat.getColor(requireActivity(), R.color.color2) and  0x00ffffff)
@@ -56,7 +59,8 @@ class AddNoteFragment : Fragment() {
                 id = 0,
                 title = title,
                 content = content,
-                color = color
+                color = color,
+                date = date
             )
 
             noteViewModel.insert(note)

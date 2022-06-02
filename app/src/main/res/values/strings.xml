@@ -9,6 +9,7 @@
     <string name="search">Search</string>
     <string name="delete">Delete</string>
     <string name="save">Save</string>
+    <string name="date">Date</string>
 
     ///dialog delete
     <string name="delete_title_dialog">Delete Note</string>

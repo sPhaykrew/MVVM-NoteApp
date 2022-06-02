@@ -75,7 +75,8 @@ class EditNoteFragment : Fragment() {
                 id = note.data.id,
                 title = title,
                 content = content,
-                color = color
+                color = color,
+                date = note.data.date
             )
 
             noteViewModel.update(note)

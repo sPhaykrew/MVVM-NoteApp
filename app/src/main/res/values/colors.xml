@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color1">#F38181</color>
-    <color name="color2">#FCE38A</color>
-    <color name="color3">#EAFFD0</color>
-    <color name="color4">#95E1D3</color>
+    <color name="color1">#2D4059</color>
+    <color name="color2">#EA5455</color>
+    <color name="color3">#F07B3F</color>
+    <color name="color4">#FFD460</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
