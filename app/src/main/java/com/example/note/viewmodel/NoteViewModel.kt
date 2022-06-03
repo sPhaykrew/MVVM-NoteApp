@@ -11,9 +11,9 @@ import kotlinx.coroutines.launch
 
 class NoteViewModel(private val repository: NoteRepository) : ViewModel() {
 
-    private val notes = repository.noteData()
+    fun getAllNote() : LiveData<List<NoteData>> = repository.noteData()
 
-    fun getAllNote() : LiveData<List<NoteData>> = notes
+    fun search(text : String) : LiveData<List<NoteData>> = repository.search(text)
 
     fun insert(noteData: NoteData){
         viewModelScope.launch {Dispatchers.IO
@@ -33,13 +33,4 @@ class NoteViewModel(private val repository: NoteRepository) : ViewModel() {
         }
     }
 
-    fun noteFilter(text: String , notes : List<NoteData>) : MutableList<NoteData> {
-        val filter = mutableListOf<NoteData>()
-        for (note in notes) {
-            if (note.title.contains(text) || note.content.contains(text)) {
-                filter.add(note)
-            }
-        }
-        return filter
-    }
 }
