@@ -12,8 +12,10 @@
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/layoutAppBar"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.Toolbar
@@ -85,7 +87,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/title_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
@@ -93,13 +95,14 @@
             android:hint="@string/title"
             app:endIconMode="clear_text"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/color_group">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edittext_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:imeOptions="actionNext"
+                android:imeOptions="actionGo"
                 android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -107,7 +110,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/content_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
@@ -115,6 +118,7 @@
             android:hint="@string/content"
             app:endIconMode="clear_text"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title_layout">
 
             <com.google.android.material.textfield.TextInputEditText

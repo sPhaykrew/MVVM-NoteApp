@@ -47,7 +47,9 @@ class MainFragment : Fragment() {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                noteFilter(p0.toString())
+                val noteFiler = noteViewModel.noteFilter(p0.toString(),notes)
+                recyclerViewAdapter.setItem(noteFiler)
+                recyclerViewAdapter.notifyDataSetChanged()
             }
 
             override fun afterTextChanged(p0: Editable?) {
@@ -61,17 +63,6 @@ class MainFragment : Fragment() {
     private fun initRecyclerView() {
         recyclerViewAdapter = RecyclerViewAdapter()
         binding.recyclerview.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-    }
-
-    private fun noteFilter(text: String) {
-        val filter = mutableListOf<NoteData>()
-        for (note in notes) {
-            if (note.title.contains(text) || note.content.contains(text)) {
-                filter.add(note)
-            }
-        }
-        recyclerViewAdapter.setItem(filter)
-        recyclerViewAdapter.notifyDataSetChanged()
     }
 
 }

@@ -32,4 +32,14 @@ class NoteViewModel(private val repository: NoteRepository) : ViewModel() {
         repository.delete(id)
         }
     }
+
+    fun noteFilter(text: String , notes : List<NoteData>) : MutableList<NoteData> {
+        val filter = mutableListOf<NoteData>()
+        for (note in notes) {
+            if (note.title.contains(text) || note.content.contains(text)) {
+                filter.add(note)
+            }
+        }
+        return filter
+    }
 }
