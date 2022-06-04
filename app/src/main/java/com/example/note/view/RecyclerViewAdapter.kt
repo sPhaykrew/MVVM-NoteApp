@@ -25,7 +25,7 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
         holder.binding.title.text = item[position].title
         holder.binding.content.text = item[position].content
         holder.binding.date.text = item[position].date
-        holder.binding.color.setCardBackgroundColor(Color.parseColor(item[position].color))
+        holder.binding.color.setBackgroundColor(Color.parseColor(item[position].color))
         holder.binding.root.setOnClickListener {
             val action = MainFragmentDirections.actionMainFragmentToEditNoteFragment(item[position])
             Navigation.findNavController(it).navigate(action)
