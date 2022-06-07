@@ -15,7 +15,7 @@ import com.example.note.viewmodel.NoteViewModelFactory
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
     private lateinit var navController : NavController
-    lateinit var noteViewModel: NoteViewModel
+    private lateinit var noteViewModel: NoteViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
