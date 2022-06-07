@@ -1,10 +1,11 @@
-package com.example.note.model
+package com.example.note.data.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import com.example.note.data.model.NoteData
 
 @Dao
 interface NoteDAO {

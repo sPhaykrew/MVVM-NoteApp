@@ -1,4 +1,4 @@
-package com.example.note.view
+package com.example.note.ui.main.view
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -10,8 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.note.R
 import com.example.note.databinding.FragmentEditNoteBinding
-import com.example.note.model.NoteData
-import com.example.note.viewmodel.NoteViewModel
+import com.example.note.data.model.NoteData
+import com.example.note.ui.main.viewmodel.NoteViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class EditNoteFragment : Fragment() {

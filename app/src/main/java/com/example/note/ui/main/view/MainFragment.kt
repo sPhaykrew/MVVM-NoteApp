@@ -1,4 +1,4 @@
-package com.example.note.view
+package com.example.note.ui.main.view
 
 import android.os.Bundle
 import android.text.Editable
@@ -13,7 +13,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.note.R
 import com.example.note.databinding.FragmentMainBinding
-import com.example.note.viewmodel.NoteViewModel
+import com.example.note.ui.main.adapter.RecyclerViewAdapter
+import com.example.note.ui.main.viewmodel.NoteViewModel
 
 class MainFragment : Fragment() {
 
@@ -63,16 +64,5 @@ class MainFragment : Fragment() {
         recyclerViewAdapter = RecyclerViewAdapter()
         binding.recyclerview.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
     }
-
-//    private fun noteFilter(text: String) {
-//        val filter = mutableListOf<NoteData>()
-//        for (note in notes) {
-//            if (note.title.contains(text) || note.content.contains(text)) {
-//                filter.add(note)
-//            }
-//        }
-//        recyclerViewAdapter.setItem(filter)
-//        recyclerViewAdapter.notifyDataSetChanged()
-//    }
 
 }

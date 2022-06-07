@@ -1,4 +1,4 @@
-package com.example.note.view
+package com.example.note.ui.main.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,10 +7,10 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.note.R
 import com.example.note.databinding.ActivityMainBinding
-import com.example.note.model.NoteDB
-import com.example.note.model.NoteRepository
-import com.example.note.viewmodel.NoteViewModel
-import com.example.note.viewmodel.NoteViewModelFactory
+import com.example.note.data.local.NoteDB
+import com.example.note.data.repo.NoteRepository
+import com.example.note.ui.main.viewmodel.NoteViewModel
+import com.example.note.ui.base.NoteViewModelFactory
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding

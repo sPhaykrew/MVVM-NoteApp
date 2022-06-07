@@ -1,4 +1,4 @@
-package com.example.note.view
+package com.example.note.ui.main.view
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -11,8 +11,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.note.R
 import com.example.note.databinding.FragmentAddNoteBinding
-import com.example.note.model.NoteData
-import com.example.note.viewmodel.NoteViewModel
+import com.example.note.data.model.NoteData
+import com.example.note.ui.main.viewmodel.NoteViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 

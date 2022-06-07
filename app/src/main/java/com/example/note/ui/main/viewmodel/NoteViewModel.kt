@@ -1,11 +1,10 @@
-package com.example.note.viewmodel
+package com.example.note.ui.main.viewmodel
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.note.model.NoteData
-import com.example.note.model.NoteRepository
+import com.example.note.data.model.NoteData
+import com.example.note.data.repo.NoteRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

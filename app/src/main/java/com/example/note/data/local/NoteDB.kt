@@ -1,9 +1,10 @@
-package com.example.note.model
+package com.example.note.data.local
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.note.data.model.NoteData
 
 @Database(entities = [NoteData::class], version = 1)
 abstract class NoteDB : RoomDatabase() {

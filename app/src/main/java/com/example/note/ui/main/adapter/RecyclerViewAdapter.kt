@@ -1,13 +1,13 @@
-package com.example.note.view
+package com.example.note.ui.main.adapter
 
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.example.note.R
 import com.example.note.databinding.RecyclerviewItemBinding
-import com.example.note.model.NoteData
+import com.example.note.data.model.NoteData
+import com.example.note.ui.main.view.MainFragmentDirections
 
 class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
@@ -17,11 +17,11 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
         this.item  = item
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(RecyclerviewItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
-    override fun onBindViewHolder(holder: RecyclerViewAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.title.text = item[position].title
         holder.binding.content.text = item[position].content
         holder.binding.date.text = item[position].date

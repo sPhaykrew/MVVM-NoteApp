@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.note.view.MainFragment"
+        android:name="com.example.note.ui.main.view.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/addNoteFragment"
-        android:name="com.example.note.view.AddNoteFragment"
+        android:name="com.example.note.ui.main.view.AddNoteFragment"
         android:label="fragment_add_note"
         tools:layout="@layout/fragment_add_note" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/editNoteFragment"
-        android:name="com.example.note.view.EditNoteFragment"
+        android:name="com.example.note.ui.main.view.EditNoteFragment"
         android:label="fragment_edit_note"
         tools:layout="@layout/fragment_edit_note" >
         <action
@@ -41,7 +41,7 @@
             app:popUpToInclusive="true" />
         <argument
             android:name="data"
-            app:argType="com.example.note.model.NoteData" />
+            app:argType="com.example.note.data.model.NoteData" />
     </fragment>
 
 </navigation>
